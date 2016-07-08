@@ -37,29 +37,26 @@ export default Ember.Component.extend({
     let that = this;
     let $navItems = this.$("li", ".sidebar");
     $navItems.removeClass("active");
-    let links = this.$("a", ".sidebar");
     let currentUrl = that.get("routeUrl");
-    let flag = false;
-    links.each( (index, element) => {
-      let url = $(element).attr("href") || "";
-      url = url.replace("#", "");
-      
-      if(currentUrl == url){ flag = true; }
-
-      let routeArray = currentUrl.split("/");
-      if(currentUrl.indexOf("index") !== -1){
-        routeArray.pop();
-        if( routeArray.join("/") == url ) { flag = true };
-      }else{
-        routeArray.push("index");
-        if( routeArray.join("/") == url ) { flag = true };
-      }
-      if( flag) {
-        that.activeCurrent(element); 
-        return false;
-      }
-    })
+    let element = this.getActiveElement(currentUrl)
+    if(element) this.activeCurrent(element)
   }.observes("routeUrl"),
+
+  getActiveElement: function(currentUrl){
+    let links = this.$("a", ".sidebar"),
+      el = null;
+
+    let elems = links.filter((i, elem) => {
+      let url = ($(elem).attr("href") || "").replace("#", "");
+      if(Em.isEmpty(url)) return false;
+      if(url == currentUrl) el = elem
+      return ~currentUrl.indexOf(url)
+    }).sort(function(a, b){ 
+      if(a == b) return 0
+      return a < b ? 1 : -1
+    })
+    return (el ? el : elems[0])
+  },
 
   initRouter(){
     let _name = this.get("appRoute.controller.currentRouteName");
