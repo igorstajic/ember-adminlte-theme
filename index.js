@@ -61,6 +61,12 @@ module.exports = {
     app.import('vendor/css/font-awesome.css');
     app.import('vendor/bootstrap/js/bootstrap.js');
 
+    app.import("vendor/bootstrap/fonts/glyphicons-halflings-regular.eot", {destDir: 'fonts'})
+    app.import("vendor/bootstrap/fonts/glyphicons-halflings-regular.svg", {destDir: 'fonts'})
+    app.import("vendor/bootstrap/fonts/glyphicons-halflings-regular.ttf", {destDir: 'fonts'})
+    app.import("vendor/bootstrap/fonts/glyphicons-halflings-regular.woff", {destDir: 'fonts'})
+    app.import("vendor/bootstrap/fonts/glyphicons-halflings-regular.woff2", {destDir: 'fonts'})
+
     this.options.plugins.forEach(function(plugin){
       self.loadCssPath(plugin)
       self.loadJSPath(plugin)
