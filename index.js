@@ -88,7 +88,7 @@ module.exports = {
     "daterangepicker": "daterangepicker/daterangepicker-bs3.css",
     "jvectormap": "jvectormap/jquery-jvectormap-1.2.2.css",
     "timepicker": "timepicker/bootstrap-timepicker.css",
-    "fullcalendar": ["fullcalendar/fullcalendar.css", "fullcalendar/fullcalendar.print.css"]
+    "fullcalendar": "fullcalendar/fullcalendar.css"
   },
   jsPluginsPaths: {
     "slimscroll": "slimScroll/jquery.slimscroll.min.js",
