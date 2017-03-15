@@ -103,7 +103,8 @@ module.exports = {
     "daterangepicker": "daterangepicker/daterangepicker.js",
     "jvectormap": "jvectormap/jquery-jvectormap-1.2.2.min.js",
     "timepicker": "timepicker/bootstrap-timepicker.js",
-    "fullcalendar": "fullcalendar/fullcalendar.js"
+    "fullcalendar": "fullcalendar/fullcalendar.js",
+    "moment": "moment/moment.min.js"
   },
   getUnique: function(items){
     var u = {}, a = [];
