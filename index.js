@@ -86,7 +86,9 @@ module.exports = {
     "morris": "morris/morris.css",
     "bootstrap-wysihtml5": "bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css",
     "daterangepicker": "daterangepicker/daterangepicker-bs3.css",
-    "jvectormap": "jvectormap/jquery-jvectormap-1.2.2.css"
+    "jvectormap": "jvectormap/jquery-jvectormap-1.2.2.css",
+    "timepicker": "timepicker/bootstrap-timepicker.css",
+    "fullcalendar": ["fullcalendar/fullcalendar.css", "fullcalendar/fullcalendar.print.css"]
   },
   jsPluginsPaths: {
     "slimscroll": "slimScroll/jquery.slimscroll.min.js",
@@ -99,7 +101,9 @@ module.exports = {
     "morris": "morris/morris.min.js",
     "bootstrap-wysihtml5": "bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js",
     "daterangepicker": "daterangepicker/daterangepicker.js",
-    "jvectormap": "jvectormap/jquery-jvectormap-1.2.2.min.js"
+    "jvectormap": "jvectormap/jquery-jvectormap-1.2.2.min.js",
+    "timepicker": "timepicker/bootstrap-timepicker.js",
+    "fullcalendar": "fullcalendar/fullcalendar.js"
   },
   getUnique: function(items){
     var u = {}, a = [];
