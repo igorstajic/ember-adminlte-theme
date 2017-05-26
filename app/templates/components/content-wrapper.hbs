@@ -1,6 +1,8 @@
-<section class="content-header">
-  {{nav-breadcrumb}}
-</section>
+{{#if showBreadcrumbs}}
+  <section class="content-header">
+    {{nav-breadcrumb}}
+  </section>
+{{/if}}
 <section class="content">
   {{yield}}
 </section>

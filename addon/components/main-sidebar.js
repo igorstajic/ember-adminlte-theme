@@ -1,8 +1,8 @@
 import Ember from 'ember';
 
-const { computed, isBlank } = Ember;
+const { computed, isEmpty, $, Component } = Ember;
 
-export default Ember.Component.extend({
+export default Component.extend({
   tagName: 'aside',
   classNames: ['main-sidebar'],
   sidebarHeight: function(){
@@ -48,7 +48,7 @@ export default Ember.Component.extend({
 
     let elems = links.filter((i, elem) => {
       let url = ($(elem).attr("href") || "").replace("#", "");
-      if(Em.isEmpty(url)) return false;
+      if(isEmpty(url)) return false;
       if(url == currentUrl) el = elem
       return ~currentUrl.indexOf(url)
     }).sort(function(a, b){ 
@@ -117,7 +117,7 @@ export default Ember.Component.extend({
       if (checkElement.is('.treeview-menu')) {
         e.preventDefault();
       }
-      if (Em.isEmpty(checkElement)) {
+      if (isEmpty(checkElement)) {
         let $father = $this.parent();
         let $brother = $father.siblings();
         $brother.removeClass("active")

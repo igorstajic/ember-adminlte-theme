@@ -1,7 +1,9 @@
 import Ember from 'ember';
 
-export default Ember.Component.extend({
+const {Component, $} = Ember;
+export default Component.extend({
   classNames: ["content-wrapper"],
+  showBreadcrumbs: false,
   didInsertElement: function(){
     var self = this;
 

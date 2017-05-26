@@ -1,7 +1,7 @@
 import Ember from "ember"
-const { $ } = Ember;
+const { $, Component } = Ember;
 
-Ember.Component.reopen({
+Component.reopen({
   didRender: function(){
     if(!$.AdminLTE.options.loadState)
       $.AdminLTE.init() 

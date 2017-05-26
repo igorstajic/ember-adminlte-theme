@@ -1,4 +1,4 @@
-/* jshint node: true */
+/* eslint-env node */
 'use strict';
 
 var path = require('path'),
@@ -46,20 +46,20 @@ module.exports = {
     this.rootPath = this.nodeModulePath + "/"+ this.name
     this.app = app
 
-    this.options = this.objMerge({}, this.default_options)
+    this.hostBuildOptions = this.objMerge({}, this.default_options)
 
     if(app.options.adminLTE){
-      this.options = this.objMerge(this.options, app.options.adminLTE)
+      this.hostBuildOptions = this.objMerge(this.hostBuildOptions, app.options.adminLTE)
       if(app.options.adminLTE.plugins){
-        this.options.plugins = this.getUnique(this.default_options.plugins.concat(app.options.adminLTE.plugins))
+        this.hostBuildOptions.plugins = this.getUnique(this.default_options.plugins.concat(app.options.adminLTE.plugins))
       }
     }
 
-    app.import('vendor/bootstrap/css/bootstrap.css');
+    app.import('vendor/bootstrap/css/bootstrap.min.css');
     app.import('vendor/css/AdminLTE.css');
     app.import('vendor/css/_all-skins.min.css');
-    app.import('vendor/css/font-awesome.css');
-    app.import('vendor/bootstrap/js/bootstrap.js');
+    app.import('vendor/css/font-awesome.min.css');
+    app.import('vendor/bootstrap/js/bootstrap.min.js');
 
     app.import("vendor/bootstrap/fonts/glyphicons-halflings-regular.eot", {destDir: 'fonts'})
     app.import("vendor/bootstrap/fonts/glyphicons-halflings-regular.svg", {destDir: 'fonts'})
@@ -67,7 +67,7 @@ module.exports = {
     app.import("vendor/bootstrap/fonts/glyphicons-halflings-regular.woff", {destDir: 'fonts'})
     app.import("vendor/bootstrap/fonts/glyphicons-halflings-regular.woff2", {destDir: 'fonts'})
 
-    this.options.plugins.forEach(function(plugin){
+    this.hostBuildOptions.plugins.forEach(function(plugin){
       self.loadCssPath(plugin)
       self.loadJSPath(plugin)
     })
